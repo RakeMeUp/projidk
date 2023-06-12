@@ -1,36 +1,30 @@
 package com.rake.homeproject.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "invoice")
+@Table
 public class Invoice {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private int id;
-
-	@ManyToOne
-	@JoinColumn(name = "buyer")
-	private UserDTO buyer;
-
-	@Column(name = "date_of_creation", nullable = false)
 	private LocalDate dateOfCreation;
-
-	@Column(name = "date_of_end", nullable = false)
 	private LocalDate dateOfEnd;
-
-	@Column(nullable = false)
 	private String item;
-
-	@Column(nullable = false)
 	private String comment;
-
-	@Column(nullable = false)
 	private int price;
 
-	// Constructors, getters, and setters
+    @ManyToOne
+    @JoinColumn(name = "buyer")
+    private User buyer;
 }

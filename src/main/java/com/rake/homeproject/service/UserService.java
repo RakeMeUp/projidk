@@ -1,5 +1,5 @@
 package com.rake.homeproject.service;
-import com.rake.homeproject.model.UserDTO;
+import com.rake.homeproject.model.User;
 import com.rake.homeproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,11 +16,11 @@ public class UserService {
 		this.userRepository = userRepository;
 	}
 
-	public List<UserDTO> getUsers() {
+	public List<User> getUsers() {
 		return userRepository.findAll();
 	}
 
-	public UserDTO addUser(UserDTO user){
+	public User addUser(User user){
 		return userRepository.save(user);
 	}
 }

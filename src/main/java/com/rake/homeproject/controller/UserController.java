@@ -1,6 +1,6 @@
 package com.rake.homeproject.controller;
 
-import com.rake.homeproject.model.UserDTO;
+import com.rake.homeproject.model.User;
 import com.rake.homeproject.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +20,13 @@ public class UserController {
 	}
 
 	@GetMapping("/users")
-	public ResponseEntity<List<UserDTO>> getUsers() {
+	public ResponseEntity<List<User>> getUsers() {
 		return ResponseEntity.status(HttpStatus.OK).body(userService.getUsers());
 	}
 
 	@PostMapping("/users")
-	public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO user) {
-		UserDTO createdUser = userService.addUser(user);
+	public ResponseEntity<User> addUser(@RequestBody User user) {
+		User createdUser = userService.addUser(user);
 		return ResponseEntity.status(HttpStatus.OK).body(createdUser);
 	}
 

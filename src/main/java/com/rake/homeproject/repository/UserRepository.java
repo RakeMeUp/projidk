@@ -1,9 +1,12 @@
 package com.rake.homeproject.repository;
 
-import com.rake.homeproject.model.UserDTO;
+import com.rake.homeproject.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
-public interface UserRepository extends JpaRepository<UserDTO, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
 }
